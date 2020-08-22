@@ -55,3 +55,7 @@ exports.mileage = (waktuAwal, waktuAkhir, kecepatanAwal) => {
     
    return jarak = kecepatan * detikBerjalan;
 }
+
+exports.konversiToKm = (jarak) => {
+    return Math.floor(jarak / 1000);
+}
