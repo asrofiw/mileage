@@ -28,32 +28,31 @@ exports.mileage = (waktuAwal, waktuAkhir, kecepatanAwal) => {
     let jam = arrWaktuAwal[0];
     let menit = arrWaktuAwal[1];
     let detik = arrWaktuAwal[2];
+
+    let jamEnd = arrWaktuAkhir[0];
+    let menitEnd = arrWaktuAkhir[1];
+    let detikEnd = arrWaktuAkhir[2];
+
+    let secondAwal = (jam * 3600) + (menit * 60) + (detik);
+    let secondEnd = (jamEnd * 3600) + (menitEnd * 60) + (detikEnd);
     
     // 5 menit pertama kecepatan di tambah 2m/s
-    menit = menit + 5;
+    // 5 menit = 5 * 60 = 300 detik
+    secondAwal = secondAwal + (5 * 60);
     kecepatan = kecepatanAwal + 2;
     
     // setiap 10 menit, kecepatan + 1 sampai waktuAkhir
-    let jamEnd = arrWaktuAkhir[0];
-    let detikBerjalan = 0;
+    // 10 menit = 10 * 60 = 600 detik
+    let second = secondEnd - secondAwal;
     let menitJump = 10 * 60;
-    
-    for (detikBerjalan = 0; jam < jamEnd; detikBerjalan++){
-        detik += 1;
-        if (detik == 60){
-            detik = 0;
-            menit += 1;
-        }
-        if (detikBerjalan > 0 && detikBerjalan % menitJump == 0){
+
+    for ( let x = 0; x < second; x++ ){
+        if ( x > 0 && x % menitJump == 0 ){
             kecepatan = kecepatan + 1;
-        }
-        if (menit == 60){
-            menit = 0;
-            jam += 1;
         }
     }
     
-   return jarak = kecepatan * detikBerjalan;
+   return jarak = kecepatan * second;
 }
 
 exports.konversiToKm = (jarak) => {
