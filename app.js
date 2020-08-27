@@ -7,4 +7,4 @@ let jarakTempuh = hitungJarak.mileage(waktuAwal,waktuAkhir,kecepatanAwal);
 let konversiToKm = hitungJarak.mileage(jarakTempuh);
 
 console.log(`Jarak yang ditempuh ${jarakTempuh} m`);
-console.log(`Konversi ke Km : ${konversiToKM} Km`)
+console.log(`Konversi ke Km : ${konversiToKm} Km`)
