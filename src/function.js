@@ -50,9 +50,10 @@ exports.mileage = (waktuAwal, waktuAkhir, kecepatanAwal) => {
         if ( x > 0 && x % menitJump == 0 ){
             kecepatan = kecepatan + 1;
         }
+        // there you go jarak += kecepatan
     }
     
-   return jarak = kecepatan * second;
+   return jarak  = kecepatan * second; // it should be return jarak
 }
 
 exports.konversiToKm = (jarak) => {
